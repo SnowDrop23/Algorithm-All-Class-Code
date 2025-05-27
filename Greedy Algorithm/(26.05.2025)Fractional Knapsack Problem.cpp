@@ -1,4 +1,4 @@
-// Sir provided the question in the Google Classroom
+// Sir provided the question in the Google Classroom.
 #include <iostream>
 #include <algorithm>
 using namespace std;
