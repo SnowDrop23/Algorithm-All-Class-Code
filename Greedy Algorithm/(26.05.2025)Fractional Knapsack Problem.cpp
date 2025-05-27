@@ -6,12 +6,12 @@ using namespace std;
 struct item
 {
     string name;
-    double weight, uniPrice, value;
+    double weight, unitPrice, value;
 };
 
 bool comp(item i1, item i2)
 {
-    return (i1.uniPrice > i2.uniPrice);
+    return (i1.unitPrice > i2.unitPrice); // to get minimum just change (i1.unitPrice < i2.unitPrice)
 }
 
 int main()
@@ -25,7 +25,7 @@ int main()
     for(int i = 0; i < n; i++)
     {
         cin >> arr[i].name >> arr[i].value >> arr[i].weight;
-        arr[i].uniPrice = arr[i].value / arr[i].weight;
+        arr[i].unitPrice = arr[i].value / arr[i].weight;
     }
     sort(arr, arr+n, comp);
 
@@ -43,10 +43,18 @@ int main()
 
         else
         {
-            total_value += arr[i].uniPrice * capacity;
+            total_value += arr[i].unitPrice * capacity;
             break;
         }
     }
 
     cout << "Profit: " << total_value << endl;
+    cout << "Box\tValue\tWeight\tPer unit price\n";
+    for(int i = 0; i < n; i++)
+    {
+        cout << arr[i].name << "\t" 
+             << arr[i].value << "\t" 
+             << arr[i].weight << "\t" 
+             << arr[i].unitPrice << endl;
+    }
 }
